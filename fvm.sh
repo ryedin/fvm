@@ -9,12 +9,14 @@
 # Implemented by Tim Caswell <tim@creationix.com>
 # with much bash help from Matthew Ranney
 
+# adapted for use with feather by Ryan Gahl (ryan@thevolary.com)
+
 # Auto detect the FVM_DIR
 if [ ! -d "$FVM_DIR" ]; then
     export FVM_DIR=$(cd $(dirname ${BASH_SOURCE[0]:-$0}); pwd)
 fi
 
-# Emulate curl with wget, if necessary
+# we'll make a hard dependency on wget wince curl had issues with github's auto tarballing urls
 if [ ! `which wget` ]; then
     echo 'Need wget to proceed.' >&2;
     return 13
