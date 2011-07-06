@@ -13,6 +13,7 @@ fvm auto downloads tagged packages from theVolary's feather repo and sets up env
 
 ### Automation
 Just like with nvm, we like to edit our .bashrc file so that fvm.sh is sourced at startup:
+    
     FVM_HOME=~/mainline/fvm
     . $FVM_HOME/fvm.sh
     fvm use v0.1.3
