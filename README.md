@@ -1,7 +1,7 @@
 fvm
 ===
 
-fvm auto downloads tagged packages from [https://github.com/theVolary/feather](theVolary's feather repo) and sets up environment variables so you can easily switch between released(tagged) versions of feather runtimes.
+fvm auto downloads tagged packages from [theVolary's feather repo](https://github.com/theVolary/feather) and sets up environment variables so you can easily switch between released(tagged) versions of feather runtimes.
 
 ### Installation
 - clone this repo or just copy fvm.sh into a folder called 'fvm' (name isn't really important but for sake of these directions we're assuming you went with 'fvm').
