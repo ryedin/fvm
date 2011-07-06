@@ -18,3 +18,4 @@ Just like with nvm, we like to edit our .bashrc file so that fvm.sh is sourced a
     . $FVM_HOME/fvm.sh
     fvm use v0.1.3
    
+(and of course you would update the final line to use a new version as you upgrade the "default" version on your machine)
