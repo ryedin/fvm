@@ -119,6 +119,10 @@ fvm()
       hash -r  
       echo "Now using feather $VERSION"
     ;;
+    "ls" )
+      echo "Installed Versions:"
+      ls $FVM_DIR | grep ^v
+    ;;
     "version" )
         fvm_version $2
     ;;
