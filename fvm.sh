@@ -59,6 +59,7 @@ fvm()
       echo "    fvm help                    Show this message"
       echo "    fvm install <version>       Download and install a <version>"
       echo "    fvm use <version>           Modify PATH to use <version>.  If <version> is omitted, display current version."
+      echo "    fvm ls                      Display a list of installed versions."
       echo
       echo "Example:"
       echo "    fvm install v0.1.3          Install a specific version number"
