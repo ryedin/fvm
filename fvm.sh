@@ -58,7 +58,8 @@ fvm()
       echo "Usage:"
       echo "    fvm help                    Show this message"
       echo "    fvm install <version>       Download and install a <version>"
-      echo "    fvm use <version>           Modify PATH to use <version>"
+      echo "    fvm use <version>           Modify PATH to use <version>.  If <version> is omitted, display current version."
+      echo "    fvm ls                      Display a list of installed versions."
       echo
       echo "Example:"
       echo "    fvm install v0.1.3          Install a specific version number"
@@ -93,7 +94,12 @@ fvm()
     ;;
     "use" )
       if [ $# -ne 2 ]; then
-        fvm help
+        if [[ "$FEATHER_HOME" != "" ]]; then
+          echo "Currently using feather "`expr //$FEATHER_HOME : '.*/\(.*\)'`
+        else
+          printf "\033[1;31mNo FEATHER_HOME variable found, or it is empty.\e[0m"
+          fvm help
+        fi
         return
       fi
       VERSION=`fvm_version $2`
