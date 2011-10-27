@@ -82,7 +82,7 @@ fvm()
         cd the* && \
         cp -r * ../../../${VERSION}/ && \
         cd ../../../${VERSION}/ && \
-        modules=`cat bin/setup.sh | egrep -o 'MODULES=\(.*\)' | sed -E 's/MODULES=\( (.*) \)/\1/'`
+        modules=`cat bin/setup.sh | egrep -o '^MODULES=\(.*\)' | sed -E 's/MODULES=\( (.*) \)/\1/'`
         global_modules=`cat bin/setup.sh | egrep -o 'GLOBAL_MODULES=\(.*\)' | sed -E 's/GLOBAL_MODULES=\( (.*) \)/\1/'`
         echo "modules = "${modules}
         echo "global modules = "${global_modules}
