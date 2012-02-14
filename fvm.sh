@@ -82,12 +82,10 @@ fvm()
         cd the* && \
         cp -r * ../../../${VERSION}/ && \
         cd ../../../${VERSION}/ && \
-        modules=`cat bin/setup.sh | egrep -o '^MODULES=\(.*\)' | sed -E 's/MODULES=\( (.*) \)/\1/'`
-        global_modules=`cat bin/setup.sh | egrep -o 'GLOBAL_MODULES=\(.*\)' | sed -E 's/GLOBAL_MODULES=\( (.*) \)/\1/'`
-        echo "modules = "${modules}
-        echo "global modules = "${global_modules}
-        npm install ${modules}  
-        npm install -g ${global_modules}      
+        echo "installing global modules.   cwd = "`pwd`
+        npm install -g `cat bin/global_modules.txt` # space separate modules in this file!
+        echo "rebuilding npm modules"
+        npm rebuild
         )
       then
         fvm use $VERSION
@@ -129,8 +127,7 @@ fvm()
       echo "Now using feather $VERSION"
     ;;
     "ls" )
-      echo "Installed Versions:"
-      ls $FVM_DIR | grep ^v
+      node $FVM_DIR/tags.js
     ;;
     "version" )
         fvm_version $2
