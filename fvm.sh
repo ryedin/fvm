@@ -77,7 +77,7 @@ fvm()
         cd "$FVM_DIR/src" && \
         mkdir -p "$VERSION" && \
         cd "$VERSION" && \
-        wget "https://github.com/theVolary/feather/tarball/$VERSION" -O "$VERSION" && \
+        wget --no-check-certificate "https://github.com/theVolary/feather/tarball/$VERSION" -O "$VERSION" && \
         tar -xzf "$VERSION" && \
         cd the* && \
         cp -r * ../../../${VERSION}/ && \
