@@ -4,9 +4,19 @@ var https = require("https"),
 
 var installCheck = function(tag) {
   if (path.existsSync(env.FVM_DIR + "/" + tag.trim())) {
-    return "\033[1;34m" + tag + "\033[0m";
+    var color = "1;34m";
+    if (isTagInUse(tag)) {
+      color = "1;32m";
+    }
+    return "\033[" + color + tag + "\033[0m";
   }
   return tag;
+}
+var isTagInUse = function(tag) {
+  if (env.FEATHER_HOME === env.FVM_DIR + "/" + tag.trim()) {
+    return true;
+  }
+  return false;
 }
 var getMaxTagNameLength = function(tags) {
   var max = 0;
@@ -44,7 +54,7 @@ https.get({
     var maxPerLine = Math.floor(120 / width);
     var line = "", i, j;
     
-    console.log("Available Tags (\033[1;34mBlue\033[0m are installed)");
+    console.log("Available Tags (\033[1;34mBlue\033[0m are installed, \033[1;32mGreen\033[0m is in use.)");
     
     for (i = 0; i < tags.length; i+= maxPerLine) {
       line = "";
