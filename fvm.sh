@@ -84,8 +84,8 @@ fvm()
         cd ../../../${VERSION}/ && \
         echo "installing global modules.   cwd = "`pwd`
         npm install -g `cat bin/global_modules.txt` # space separate modules in this file!
-        echo "rebuilding npm modules"
-        npm rebuild
+        echo "installing npm modules (via package.json and npm-shrinkwrap.json)"
+        npm install
         )
       then
         fvm use $VERSION
